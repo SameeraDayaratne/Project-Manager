@@ -1,8 +1,15 @@
 import React from "react";
+import ProjectForm from "./ProjectForm";
 
-function AddNewProject(props) {
+function AddNewProject({isShowForm, onAddClick,onCancelClick}) {
+
+  function handleCancel(){
+    onCancelClick();
+  }
+    
   return (
-    <div className="col-span-3">
+    <>
+    {isShowForm?<ProjectForm onCancelClick={handleCancel}></ProjectForm>:<div className="col-span-3">
       <div className="container flex flex-col items-center  justify-center h-screen">
         <img className="h-20" src="./src/assets/no-projects.png" alt="" />
         <h2 className="font-bold text-2xl">No Project Selected</h2>
@@ -10,12 +17,15 @@ function AddNewProject(props) {
           Select a Project or get started with a new one
         </p>
         <div className="my-4">
-          <a href="" className="p-3 pt-2 text-white rounded-lg bg-gray-500">
+          <button href="" onClick={onAddClick} className="p-3 pt-2 text-white rounded-lg bg-gray-500">
             Create New Project
-          </a>
+          </button>
         </div>
       </div>
-    </div>
+    </div>}
+    
+    </>
+    
   );
 }
 

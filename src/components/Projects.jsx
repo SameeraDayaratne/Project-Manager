@@ -1,6 +1,6 @@
 import React from "react";
 
-function Projects(props) {
+function Projects({onAddClick}) {
   return (
     <div className="col-span-1 bg-black text-white  rounded-tr-[50px]">
       <div className="container mx-auto flex flex-col p-12 ">
@@ -8,9 +8,9 @@ function Projects(props) {
           YOUR PROJECTS
         </h1>
         <div>
-          <a href="" className="p-3 pt-2 text-white rounded-lg bg-gray-500">
+          <button onClick={onAddClick}  className="p-3 pt-2 text-white rounded-lg bg-gray-500">
             Add Project
-          </a>
+          </button>
         </div>
       </div>
     </div>
