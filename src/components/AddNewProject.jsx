@@ -2,14 +2,18 @@ import React from "react";
 import ProjectForm from "./ProjectForm";
 import Project from "./Project";
 
-function AddNewProject({onAddClick,onCancelClick,onAddProject, showContent , onCancelProject}) {
+function AddNewProject({onAddClick,onCancelClick,onAddProject, showContent ,project}) {
 
   function handleCancel(){
     onCancelClick();
   }
 
-  function addProject(project){
-    onAddProject(project);
+  function addProject(project,action){
+    onAddProject(project,action);
+  }
+
+  function addTask(project,action){
+    onAddProject(project,action);
   }
 
   let addNewProjectContent = (<div className="col-span-3">
@@ -31,8 +35,8 @@ function AddNewProject({onAddClick,onCancelClick,onAddProject, showContent , onC
     
   return (
     <>
-    {/* {(showContent=='home')?addNewProjectContent:(showContent=='form')?<ProjectForm onAddProject={addProject} onCancelClick={handleCancel} ></ProjectForm>:(showContent=='project')?<button onClick={onCancelProject}>Hiii</button> :null} */}
-    {(showContent=='home')?<Project></Project>:(showContent=='form')?<ProjectForm onAddProject={addProject} onCancelClick={handleCancel} ></ProjectForm>:(showContent=='project')?<button onClick={onCancelProject}>Hiii</button> :null}
+    {(showContent=='home')?addNewProjectContent:(showContent=='form')?<ProjectForm onAddProject={addProject} onCancelClick={handleCancel} ></ProjectForm>:<Project onAddTask={addTask} project={project}></Project>}
+    {/* {(showContent=='home')?:(showContent=='form')?<ProjectForm onAddProject={addProject} onCancelClick={handleCancel} ></ProjectForm>:(showContent=='project')?<button onClick={onCancelProject}>Hiii</button> :null} */}
     </>
     
   );

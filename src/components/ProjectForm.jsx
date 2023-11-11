@@ -34,7 +34,7 @@ function handleDateChange(event){
       tasks:[]
     }
 
-    onAddProject(project);
+    onAddProject(project ,'add');
 
   }
 
