@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
-function Project({ project ,onAddTask }) {
+function Project({ project ,onAddTask,onDeleteTask }) {
 
  const [task , setTask] = useState('');
 
@@ -69,7 +69,7 @@ function handleClick(){
                   className="container flex flex-row justify-between "
                 >
                   <p>{task.taskName}</p>
-                  <button className="p3 py2 rounded-2xl text-center hover:text-red-500">
+                  <button onClick={()=>onDeleteTask(project.id ,task.id)} className="p3 py2 rounded-2xl text-center hover:text-red-500">
                     Clear
                   </button>
                 </div>

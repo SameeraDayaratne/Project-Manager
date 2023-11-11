@@ -97,6 +97,29 @@ function App() {
 
   
   }
+
+  function deleteTask(projectId,taskId){
+    console.log(projectId);
+    console.log(taskId);
+
+    setProjects(prevProjArr => {
+
+      prevProjArr.forEach(proj => {
+        if(proj.id == projectId)
+        {
+          const index = proj.tasks.findIndex(task => {
+            return (task.id === taskId);
+          });
+
+          proj.tasks.splice(index,1);
+        }
+      });
+
+      let updatedArr = [...prevProjArr]
+      return(updatedArr);
+    });
+  }
+
   function handleAddClick(){
     setShowContent('form');
   }
@@ -114,7 +137,7 @@ function App() {
       
       <div className="grid grid-cols-4 gap-3 mt-9 ">
         <Projects projects={projects} onAddClick={handleAddClick}  onProjectClick={handleProjectClick}></Projects>
-        <AddNewProject project={projectObj.current} showContent={showContent}  onAddClick={handleAddClick} onCancelClick={handleCancelClick} onAddProject={addProject}></AddNewProject>
+        <AddNewProject project={projectObj.current} showContent={showContent}  onAddClick={handleAddClick} onCancelClick={handleCancelClick} onAddProject={addProject} onDeleteTask={deleteTask}></AddNewProject>
       </div>
     </>
   );
