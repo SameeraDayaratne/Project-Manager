@@ -7,7 +7,7 @@ let initial_projects = [
     id: 1,
     title:'This is the title',
     description: 'this is the description',
-    date: '2015-11-13',
+    date: new Date(2015,10,20),
     tasks:[{
       id:1,
       taskName:'this is task one'
@@ -23,7 +23,7 @@ let initial_projects = [
     id: 2,
     title:'hahahaa',
     description: 'this is the description',
-    date: '2015-11-13',
+    date: new Date(2015,12,21),
     tasks:[{
       id:1,
       taskName:'this is task two'

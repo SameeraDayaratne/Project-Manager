@@ -4,6 +4,10 @@ import { v4 as uuidv4 } from 'uuid';
 
 function Project({ project ,onAddTask,onDeleteTask , onDeleteProject}) {
 
+  let year = project.date.getFullYear();
+  let month = project.date.toLocaleString('default', { month: 'long' });
+  let day = project.date.getDate();
+
  const [task , setTask] = useState('');
 
 function handleTask(event)
@@ -32,7 +36,7 @@ function handleClick(){
         <div className="flex flex-row justify-between">
           <div className="flex flex-col">
             <h2 className="font-bold text-3xl">{project.title}</h2>
-            <p>Date</p>
+            <p>{`${month} ${day}, ${year}`}</p>
           </div>
 
           <button onClick={()=> onDeleteProject(project.id)} className="p-3 py-2 text-center hover:bg-slate-200 rounded-xl">
