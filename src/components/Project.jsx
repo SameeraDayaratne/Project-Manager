@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 
-function Project({ project ,onAddTask,onDeleteTask }) {
+function Project({ project ,onAddTask,onDeleteTask , onDeleteProject}) {
 
  const [task , setTask] = useState('');
 
@@ -35,7 +35,7 @@ function handleClick(){
             <p>Date</p>
           </div>
 
-          <button className="p-3 py-2 text-center hover:bg-slate-200 rounded-xl">
+          <button onClick={()=> onDeleteProject(project.id)} className="p-3 py-2 text-center hover:bg-slate-200 rounded-xl">
             Delete
           </button>
         </div>
