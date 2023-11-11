@@ -1,6 +1,6 @@
 import React from "react";
 
-function Projects({onAddClick,projects}) {
+function Projects({onAddClick,projects,onProjectClick}) {
   return (
     <div className="col-span-1 bg-black text-white  rounded-tr-[50px]">
       <div className="container mx-auto flex flex-col p-12 ">
@@ -17,7 +17,7 @@ function Projects({onAddClick,projects}) {
           {projects.map(project => {
             return(
             <div key={project.id} className="my-4">
-                <button  className="pr-5 focus:bg-slate-500">{project.title}</button>
+                <button onClick={()=> onProjectClick(project)}  className="pr-5 focus:bg-slate-500">{project.title}</button>
             </div>);
           } )}
         

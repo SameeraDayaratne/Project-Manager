@@ -27,8 +27,9 @@ let initial_projects = [
 ];
 function App() {
 
-  const [isShowForm , setIsShowForm] = useState(false);
+  const [showContent , setShowContent] = useState('home');
   const [projects,setProjects] = useState(initial_projects);
+  
 
   function addProject(project){
     setProjects(prev => 
@@ -48,22 +49,28 @@ function App() {
       }
       );
 
-      setIsShowForm(false);
+      setShowContent('home');
 
   
   }
   function handleAddClick(){
-    setIsShowForm(true);
+    setShowContent('form');
   }
   function handleCancelClick(){
-    setIsShowForm(false);
+    setShowContent('home');
+  }
+
+  function handleProjectClick(project){
+    console.log('inn addenew');
+    console.log(project);
+    setShowContent('project');
   }
   return (
     <>
       
       <div className="grid grid-cols-4 gap-3 mt-9 ">
-        <Projects projects={projects} onAddClick={handleAddClick} ></Projects>
-        <AddNewProject isShowForm={isShowForm} onAddClick={handleAddClick} onCancelClick={handleCancelClick} onAddProject={addProject}></AddNewProject>
+        <Projects projects={projects} onAddClick={handleAddClick}  onProjectClick={handleProjectClick}></Projects>
+        <AddNewProject showContent={showContent}  onAddClick={handleAddClick} onCancelClick={handleCancelClick} onAddProject={addProject}></AddNewProject>
       </div>
     </>
   );
