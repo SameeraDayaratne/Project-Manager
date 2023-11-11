@@ -26,7 +26,7 @@ function handleClick(){
             taskName: task
         }]
     }
-
+    setTask('');
     onAddTask(updatedProj,'modify');
 }
 
@@ -56,6 +56,7 @@ function handleClick(){
         <div className="flex flex-row justify-start gap-5 ">
           <input
             type="text"
+            value={task}
             onChange={handleTask}
             className="p-1 border-gray-400 rounded-md border-2"
           />
